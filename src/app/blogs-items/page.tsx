@@ -62,7 +62,7 @@ interface Post {
   author: Author;
 }
 
-const BlogItems: React.FC<{ url: string }> = async ({ url }) => {
+const BlogItems = async ({ url }: { url: string }) => {
   const data: Post[] = await client.fetch(`${url}{
     _id,
     title,
@@ -128,4 +128,4 @@ BlogItems.defaultProps = {
   url: `*[_type == 'post']`,
 };
 
-export default BlogItems;
+export default  BlogItems;
