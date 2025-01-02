@@ -3,7 +3,7 @@ import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import Image from "next/image";
-import { PortableTextBlock, PortableTextSpan } from '@portabletext/types';
+import { PortableTextBlock } from '@portabletext/types';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source: string) {
