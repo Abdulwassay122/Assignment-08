@@ -40,6 +40,10 @@ interface Author {
   };
 }
 
+interface Category {
+  title: string;
+}
+
 interface Post {
   _id: string;
   title: string;
@@ -54,11 +58,11 @@ interface Post {
   slug: {
     current: string;
   };
-  categories: string;
+  categories: Category[]; // Correct type for categories
   author: Author;
 }
 
-const BlogItems = async ({ url }: { url: string }) => {
+const BlogItems: React.FC<{ url: string }> = async ({ url }) => {
   const data: Post[] = await client.fetch(`${url}{
     _id,
     title,
@@ -66,7 +70,7 @@ const BlogItems = async ({ url }: { url: string }) => {
     mainImage,
     body,
     slug,
-    "categories": categories[]->title,
+    "categories": categories[]->{ title }, // Updated query
     "author": author->{name, image} 
   }`);
   console.log(data);
@@ -87,9 +91,11 @@ const BlogItems = async ({ url }: { url: string }) => {
                     height={1000}
                   />
                   <div
-                    className={`bg-opacity-90  ${post.categories === "Agentic AI" ? "bg-pink-400" : "bg-green-400"} absolute top-2 right-2 z-10 w-fit rounded-full px-3`}
+                    className={`bg-opacity-90  bg-green-400 absolute top-2 right-2 z-10 w-fit rounded-full px-3`}
                   >
-                    <p className="text-white">{post.categories}</p>
+                    <p className="text-white">
+                      {post.categories.map((category) => category.title).join(", ")}
+                    </p>
                   </div>
                 </div>
                 <div className="p-4 flex flex-col gap-4">
@@ -121,4 +127,5 @@ const BlogItems = async ({ url }: { url: string }) => {
 BlogItems.defaultProps = {
   url: `*[_type == 'post']`,
 };
+
 export default BlogItems;
