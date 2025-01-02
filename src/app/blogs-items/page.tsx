@@ -62,7 +62,7 @@ interface Post {
   author: Author;
 }
 
-const BlogItems = async ({ url }: { url: string }) => {
+const BlogItems = async ({ url="*[_type == 'post']" }: { url: string }) => {
   const data: Post[] = await client.fetch(`${url}{
     _id,
     title,
@@ -124,8 +124,5 @@ const BlogItems = async ({ url }: { url: string }) => {
   );
 };
 
-BlogItems.defaultProps = {
-  url: "*[_type == 'post']",
-};
 
 export default  BlogItems;
