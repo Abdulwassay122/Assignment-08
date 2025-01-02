@@ -125,7 +125,7 @@ const BlogItems = async ({ url }: { url: string }) => {
 };
 
 BlogItems.defaultProps = {
-  url: `*[_type == 'post']`,
+  url: "*[_type == 'post']",
 };
 
 export default  BlogItems;
