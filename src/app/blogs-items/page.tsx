@@ -61,9 +61,11 @@ interface Post {
   categories: Category[]; // Correct type for categories
   author: Author;
 }
+interface BlogItemsProps {
+  url: string; // Sanity query URL for fetching posts
+}
 
-
-export default async function BlogItems({ url = "*[_type == 'post']" }: { url: string }): Promise<JSX.Element> {
+export default async function BlogItems({ url="*[_type == 'post']"}: BlogItemsProps){
   const data: Post[] = await client.fetch(`${url}{
     _id,
     title,
