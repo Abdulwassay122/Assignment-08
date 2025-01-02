@@ -62,7 +62,8 @@ interface Post {
   author: Author;
 }
 
-const BlogItems = async ({ url="*[_type == 'post']" }: { url: string }) => {
+
+export default async function BlogItems({ url = "*[_type == 'post']" }: { url: string }): Promise<JSX.Element> {
   const data: Post[] = await client.fetch(`${url}{
     _id,
     title,
@@ -125,4 +126,3 @@ const BlogItems = async ({ url="*[_type == 'post']" }: { url: string }) => {
 };
 
 
-export default  BlogItems;
