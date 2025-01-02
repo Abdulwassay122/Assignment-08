@@ -3,7 +3,7 @@ import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import Image from "next/image";
-import { PortableTextBlock } from '@portabletext/types';
+import { PortableTextBlock, PortableTextSpan } from '@portabletext/types';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source: string) {
@@ -19,7 +19,12 @@ function extractText(portableText: PortableTextBlock[]) {
     portableText
       ?.map((block: PortableTextBlock) =>
         block.children
-          ? block.children.map((child: any) => (child as PortableTextChild).text).join("")
+          ? block.children.map((child) => {
+              if ('text' in child) {
+                return (child as PortableTextChild).text;
+              }
+              return '';
+            }).join("")
           : ""
       )
       .join(" ") || ""
