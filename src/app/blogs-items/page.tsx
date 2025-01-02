@@ -3,39 +3,72 @@ import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 import Image from "next/image";
+import { PortableTextBlock } from '@portabletext/types';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source: string) {
   return builder.image(source).url();
 }
 
-function extractText(portableText: any) {
+interface PortableTextChild {
+  text: string;
+}
+
+function extractText(portableText: PortableTextBlock[]) {
   return (
     portableText
-      ?.map((block: any) =>
+      ?.map((block: PortableTextBlock) =>
         block.children
-          ? block.children.map((child: any) => child.text).join("")
+          ? block.children.map((child: any) => (child as PortableTextChild).text).join("")
           : ""
       )
       .join(" ") || ""
   );
 }
 
+interface Author {
+  name: string;
+  image: {
+    asset: {
+      _ref: string;
+    };
+  };
+}
+
+interface Post {
+  _id: string;
+  title: string;
+  publishedAt: string;
+  mainImage: {
+    asset: {
+      _ref: string;
+    };
+    alt?: string;
+  };
+  body: PortableTextBlock[];
+  slug: {
+    current: string;
+  };
+  categories: string;
+  author: Author;
+}
+
 const BlogItems = async ({ url }: { url: string }) => {
-  const data = await client.fetch(`${url}{
-            _id,
-            title,
-            publishedAt,
-            mainImage,
-            body,
-            slug,
-            "categories": categories[]->title,
-            "author": author->{name, image} 
-          }`);
+  const data: Post[] = await client.fetch(`${url}{
+    _id,
+    title,
+    publishedAt,
+    mainImage,
+    body,
+    slug,
+    "categories": categories[]->title,
+    "author": author->{name, image} 
+  }`);
+  console.log(data);
   return (
     <section className="px-8 py-12 flex flex-col gap-12 font-poppins bg-gray-100">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-        {data.map((post: any) => {
+        {data.map((post: Post) => {
           const slicedText = extractText(post.body).slice(0, 500);
           return (
             <Link key={post._id} href={`/blog/${post.slug.current}`}>
@@ -62,16 +95,14 @@ const BlogItems = async ({ url }: { url: string }) => {
                     </p>
                   </div>
                   <p className="text-gray-700 text-[20px]">{slicedText}...</p>
-                  {/* <Link href=""> */}
                   <div className="flex items-center gap-4">
                     <img
                       className="h-12 w-12 rounded-full"
                       src={urlFor(post.author.image.asset._ref)}
-                      alt=""
+                      alt={post.author.name}
                     />
                     <p className="text-[22px] font-bold">{post.author.name}</p>
                   </div>
-                  {/* </Link> */}
                 </div>
               </div>
             </Link>

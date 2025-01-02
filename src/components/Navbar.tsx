@@ -1,21 +1,17 @@
-"use client"
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 import Image from "next/image";
 import search from './assets/icons8-search.svg'
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
 const Navbar = () => {
-    const[active, setActive] = useState('home')
   return (
     <header className='h-20 bg-[#2B2B2B] font-roboto px-10 flex justify-between items-center z-20'>
       <div className='flex gap-[120px]'>

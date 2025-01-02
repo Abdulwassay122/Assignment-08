@@ -1,8 +1,10 @@
 import React from 'react';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 
+import { TypedObject } from '@portabletext/types';
+
 interface StyledPortableTextProps {
-  value: any; // Replace `any` with the exact type if your CMS provides one
+  value: TypedObject | TypedObject[];
 }
 
 const components: PortableTextReactComponents = {
