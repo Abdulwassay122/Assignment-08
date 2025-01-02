@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <Hoome/>
-      <Blogs url={`*[_type == 'post']`}/>
+      <Blogs url={"*[_type == 'post']"}/>
     </div>
   );
 }
