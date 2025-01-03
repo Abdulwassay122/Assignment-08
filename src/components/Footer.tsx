@@ -21,10 +21,10 @@ export default function Footer() {
         <div className='flex gap-4'>
           <Link href="/blogs-items"><p className='text-[20px] font-[500]'>Blogs</p></Link>
           <Link href="/"><p className='text-[20px] font-[500]'>Contact</p></Link>
-          <Link href="/generative-ai"><p className='text-[20px] font-[500]'>Generative AI</p></Link>
-          <Link href="/agentic-ai"><p className='text-[20px] font-[500]'>Agengic AI</p></Link>
-          <Link href="/programming"><p className='text-[20px] font-[500]'>Machine Learning</p></Link>
-          <Link href="/machine-learning"><p className='text-[20px] font-[500]'>Programming</p></Link>
+          <Link href="/blogs-items/genrative-ai"><p className='text-[20px] font-[500]'>Generative AI</p></Link>
+          <Link href="/blogs-items/agentic-ai"><p className='text-[20px] font-[500]'>Agengic AI</p></Link>
+          <Link href="/blogs-items/programming"><p className='text-[20px] font-[500]'>Machine Learning</p></Link>
+          <Link href="/blogs-items/machine-learning"><p className='text-[20px] font-[500]'>Programming</p></Link>
         </div>
       </div>
       <div>

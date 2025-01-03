@@ -45,10 +45,10 @@ const Navbar = () => {
     <NavigationMenuItem>
       <NavigationMenuTrigger className='bg-[#2B2B2B] relative hover:text-white hover:bg-[#2B2B2B]  text-white'>Catagories</NavigationMenuTrigger>
       <NavigationMenuContent className='flex-col flex items-center bg-[#2b2b2b] justify-center gap-4 py-3 text-white rounded-none  shadow-none '>
-        <Link href="/agentic-ai"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Agentic&nbsp;AI</NavigationMenuLink></Link>
-        <Link href="/generative-ai"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Generative&nbsp;AI</NavigationMenuLink></Link>
-        <Link href="/programming"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Programming</NavigationMenuLink></Link>
-        <Link href="/machine-learning"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Machine&nbsp;Learning</NavigationMenuLink></Link>
+        <Link href="/blogs-items/agentic-ai"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Agentic&nbsp;AI</NavigationMenuLink></Link>
+        <Link href="/blogs-items/genrative-ai"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Generative&nbsp;AI</NavigationMenuLink></Link>
+        <Link href="/blogs-items/programming"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Programming</NavigationMenuLink></Link>
+        <Link href="/blogs-items/machine-learning"><NavigationMenuLink className='bg-[#2b2b2b] w-full hover:bg-gray-400 px-4 py-3'>Machine&nbsp;Learning</NavigationMenuLink></Link>
       </NavigationMenuContent>
     </NavigationMenuItem>
   </NavigationMenuList>
