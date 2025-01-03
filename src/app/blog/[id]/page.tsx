@@ -3,6 +3,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { client } from '@/sanity/lib/client';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
+import CommentForm from '@/components/Comments';
 
 interface PageProps {
   params: Params;
@@ -57,6 +58,7 @@ const blogDetail = async ({ params: { id } }: PageProps) => {
               <p className='text-[22px] font-bold'>{data[0].author.name}</p>
             </div>
           {/* </Link> */}
+      <CommentForm/>
         </div>
       </div>
     </section>

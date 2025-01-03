@@ -36,34 +36,42 @@ function CommentForm() {
   };
 
   return (
-    <div>
-      <h2>Leave a Comment</h2>
+    <div className="md:w-[700px] sm:w-[610px] p-6 w-full">
+      <h2 className="text-xl font-semibold text-center mb-4">Leave a Comment</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name:</label>
           <input
             type="text"
             id="name"
             value={name}
             onChange={handleNameChange}
             required
+            className="w-full p-2 border border-gray-300 rounded-lg "
           />
         </div>
-        <div>
-          <label htmlFor="comment">Comment:</label>
+        <div className="mb-4">
+          <label htmlFor="comment" className="block text-sm font-medium text-gray-700">Comment:</label>
           <textarea
             id="comment"
             value={comment}
             onChange={handleCommentChange}
             required
+            className="w-full p-2 border border-gray-300 rounded-lg"
+            rows={4}
           ></textarea>
         </div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="w-full bg-[#2B2B2B] text-white font-medium py-2 px-4 rounded-lg  "
+        >
+          Submit
+        </button>
       </form>
-      <h3>Comments:</h3>
-      <ul>
+      <h3 className="text-lg font-semibold mt-6">Comments:</h3>
+      <ul className="mt-4 space-y-2">
         {comments.map(({ id, name, comment }) => (
-          <li key={id}>
+          <li key={id} className="p-4 border border-gray-200 rounded-lg">
             <strong>{name}:</strong> {comment}
           </li>
         ))}
