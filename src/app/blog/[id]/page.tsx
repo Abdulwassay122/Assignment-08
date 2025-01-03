@@ -2,7 +2,6 @@ import React from 'react';
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from '@/sanity/lib/client';
 import { PortableText } from '@portabletext/react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 interface PageProps {

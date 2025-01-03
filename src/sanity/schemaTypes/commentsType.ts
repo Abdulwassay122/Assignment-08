@@ -17,5 +17,14 @@ export default defineType({
       type: 'text', // Type is text for longer comments
       validation: Rule => Rule.required().max(500), // Validation rules: required, max 500 characters
     },
+    {
+        name: 'slug', 
+        title: 'slug', 
+        type: 'string', 
+    },
+    {
+          name: 'publishedAt',
+          type: 'datetime',
+    },
   ],
 });
