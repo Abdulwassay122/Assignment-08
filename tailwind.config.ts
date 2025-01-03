@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		screens:{
+			"530":"530px",
+			},
   		fontFamily: {
   			tech: [
   				'Share Tech Mono',
