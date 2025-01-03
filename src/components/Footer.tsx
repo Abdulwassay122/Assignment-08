@@ -20,7 +20,7 @@ export default function Footer() {
         <p className='text-[22px] font-semibold text-center font-tech'>TechVerse</p>
         <div className='flex gap-4 flex-wrap items-center justify-center'>
           <Link href="/blogs"><p className='text-[20px] font-[500]'>Blogs</p></Link>
-          <Link href="/"><p className='text-[20px] font-[500]'>Contact</p></Link>
+          {/* <Link href="/"><p className='text-[20px] font-[500]'>Contact</p></Link> */}
           <Link href="/blogs-items/genrative-ai"><p className='text-[20px] font-[500]'>Generative AI</p></Link>
           <Link href="/blogs-items/agentic-ai"><p className='text-[20px] font-[500]'>Agengic AI</p></Link>
           <Link href="/blogs-items/programming"><p className='text-[20px] font-[500]'>Machine Learning</p></Link>

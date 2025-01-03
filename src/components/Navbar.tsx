@@ -37,11 +37,11 @@ const Navbar = () => {
     Blogs
     </NavigationMenuLink>
   </Link>
-  <Link href="/" legacyBehavior passHref>
+  {/* <Link href="/" legacyBehavior passHref>
     <NavigationMenuLink className='text-white'>
     About
     </NavigationMenuLink>
-  </Link>
+  </Link> */}
     <NavigationMenuItem>
       <NavigationMenuTrigger className='bg-[#2B2B2B] relative hover:text-white hover:bg-[#2B2B2B]  text-white'>Catagories</NavigationMenuTrigger>
       <NavigationMenuContent className='flex-col flex items-center bg-[#2b2b2b] justify-center gap-4 py-3 text-white rounded-none  shadow-none '>
