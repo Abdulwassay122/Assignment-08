@@ -1,6 +1,5 @@
 import React from 'react';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
-
 import { TypedObject } from '@portabletext/types';
 
 interface StyledPortableTextProps {
@@ -8,6 +7,18 @@ interface StyledPortableTextProps {
 }
 
 const components: PortableTextReactComponents = {
+  unknownType: ({ children }: React.PropsWithChildren<{}>) => (
+    <span className="text-red-500">{children}</span>
+  ),
+  unknownBlockStyle: ({ children }: React.PropsWithChildren<{}>) => (
+    <span className="text-red-500">{children}</span>
+  ),
+  unknownList: ({ children }: React.PropsWithChildren<{}>) => (
+    <ul className="list-disc list-inside">{children}</ul>
+  ),
+  unknownListItem: ({ children }: React.PropsWithChildren<{}>) => (
+    <li className="mb-1">{children}</li>
+  ),
   types: {
     image: ({ value }: { value: { url: string; alt?: string } }) => (
       <img
@@ -18,29 +29,29 @@ const components: PortableTextReactComponents = {
     ),
   },
   block: {
-    h1: ({ children }: { children: React.ReactNode }) => (
+    h1: ({ children }: React.PropsWithChildren<{}>) => (
       <h1 className="text-4xl font-bold mb-4">{children}</h1>
     ),
-    h2: ({ children }: { children: React.ReactNode }) => (
+    h2: ({ children }: React.PropsWithChildren<{}>) => (
       <h2 className="text-3xl font-semibold mb-3">{children}</h2>
     ),
-    h3: ({ children }: { children: React.ReactNode }) => (
+    h3: ({ children }: React.PropsWithChildren<{}>) => (
       <h3 className="text-2xl font-medium mb-2">{children}</h3>
     ),
-    normal: ({ children }: { children: React.ReactNode }) => (
+    normal: ({ children }: React.PropsWithChildren<{}>) => (
       <p className="text-base leading-7 mb-4">{children}</p>
     ),
-    blockquote: ({ children }: { children: React.ReactNode }) => (
+    blockquote: ({ children }: React.PropsWithChildren<{}>) => (
       <blockquote className="border-l-4 pl-4 italic text-gray-600">
         {children}
       </blockquote>
     ),
   },
   marks: {
-    strong: ({ children }: { children: React.ReactNode }) => (
+    strong: ({ children }: React.PropsWithChildren<{}>) => (
       <strong className="font-bold">{children}</strong>
     ),
-    em: ({ children }: { children: React.ReactNode }) => (
+    em: ({ children }: React.PropsWithChildren<{}>) => (
       <em className="italic">{children}</em>
     ),
     link: ({
@@ -60,6 +71,16 @@ const components: PortableTextReactComponents = {
       </a>
     ),
   },
+  list: ({ children }: React.PropsWithChildren<{}>) => (
+    <ul className="list-disc list-inside">{children}</ul>
+  ),
+  listItem: ({ children }: React.PropsWithChildren<{}>) => (
+    <li className="mb-1">{children}</li>
+  ),
+  hardBreak: () => <br />,
+  unknownMark: ({ children }: React.PropsWithChildren<{}>) => (
+    <span className="text-red-500">{children}</span>
+  ),
 };
 
 const StyledPortableText: React.FC<StyledPortableTextProps> = ({ value }) => {
