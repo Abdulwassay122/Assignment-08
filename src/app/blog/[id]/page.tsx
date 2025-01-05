@@ -30,7 +30,7 @@ const blogDetail = async ({ params: { id } }: PageProps) => {
     "author": author->{name, image} 
   }`);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <section className='md:px-16 sm:px-8 px-4 py-10 flex flex-col gap-16'>
@@ -58,7 +58,7 @@ const blogDetail = async ({ params: { id } }: PageProps) => {
               <p className='text-[22px] font-bold'>{data[0].author.name}</p>
             </div>
           {/* </Link> */}
-      <CommentForm/>
+      <CommentForm slug={data[0].slug.current}/>
         </div>
       </div>
     </section>

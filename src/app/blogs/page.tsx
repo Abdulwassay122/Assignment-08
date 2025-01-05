@@ -74,7 +74,7 @@ export default async function Blogs(){
     "categories": categories[]->{ title }, // Updated query
     "author": author->{name, image} 
   }`);
-  console.log(data);
+  // console.log(data);
   return (
     <section className="sm:px-8 px-1 py-12 flex flex-col gap-12 font-poppins bg-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
