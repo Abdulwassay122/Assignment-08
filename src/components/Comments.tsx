@@ -48,8 +48,6 @@ setData(dataa)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(process.env.NEXT_PUBLIC_SANITY_API_TOKEN)
-
     if (!name || !comment) {
       alert('Please fill in both fields.');
       return;
