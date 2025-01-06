@@ -1,6 +1,7 @@
 "use client"
 import { client } from '@/sanity/lib/client';
 import React, { useEffect, useState } from 'react';
+import Loading from './Loading';
 
 interface Comment {
   id: number;
@@ -21,9 +22,11 @@ function CommentForm({slug}:{slug:string}) {
   const [comments, setComments] = useState<Comment[]>([]);
 
   const [data, setData] = useState<Comments[]>([]);
-
+  
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(()=>{
+    setLoading(true)
     const apiFetch = async () =>{
       const dataa = await client.fetch(`*[_type == "comment" && slug == "${slug}"]{
     _type,
@@ -33,6 +36,7 @@ function CommentForm({slug}:{slug:string}) {
     publishedAt
 }`)
 setData(dataa)
+setLoading(false)
     }
     apiFetch()
   },[])
@@ -130,6 +134,8 @@ setData(dataa)
           Submit
         </button>
       </form>
+      {loading && <Loading/>}
+      {!loading && <div>
       <h3 className="text-lg font-semibold mt-6">Comments({data.length}):</h3>
       <ul className="mt-4 space-y-2">
         {comments.map(({ id, name, comment }) => (
@@ -145,6 +151,7 @@ setData(dataa)
           </li>
         ))}
       </ul>
+        </div>}
     </div>
   );
 }
